@@ -462,3 +462,14 @@ header .entry-meta {
 #goog-wm-sb {
 	@extend .btn;
 }
+
+.list-inline {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.list-inline ul li { 
+	display: inline;
+	padding: 15px; 
+}
