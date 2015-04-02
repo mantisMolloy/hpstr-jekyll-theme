@@ -463,13 +463,21 @@ header .entry-meta {
 	@extend .btn;
 }
 
-.list-inline {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+#menu-outer {
+	height: 84px;
+	background: url(images/bar-bg.jpg) repeat-x;
 }
 
-.list-inline ul li { 
-	display: inline;
-	padding: 15px; 
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
 }
+
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#horizontal-list li {
+		display: inline;
+	}
