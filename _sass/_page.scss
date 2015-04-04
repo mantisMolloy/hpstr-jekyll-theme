@@ -203,6 +203,7 @@ header .entry-meta {
 		margin: 40px 2px 20px 2px;
 		padding: 10px 15px;
 		background-color: $white;
+		text-align: justify;
 		@include rounded(3px);
 		@media #{$medium} {
 			margin-left: 10px;
@@ -210,7 +211,7 @@ header .entry-meta {
 			padding: 20px 30px;
 		}
 		@media #{$large} {
-			max-width: 800px;
+			max-width: 1200px;
 			margin: 50px auto 30px auto;
 			padding: 50px 80px;
 			> p:first-child {
@@ -459,21 +460,12 @@ header .entry-meta {
 	@extend .btn;
 }
 
-#menu-outer {
-	height: 84px;
-	background: url(images/bar-bg.jpg) repeat-x;
+.fixed-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 50px;
+  background-color: #00a087;
 }
-
-.table {
-	display: table;   /* Allow the centering to work */
-	margin: 0 auto;
-}
-
-ul#horizontal-list {
-	min-width: 696px;
-	list-style: none;
-	padding-top: 20px;
-	}
-	ul#horizontal-list li {
-		display: inline;
-	}
