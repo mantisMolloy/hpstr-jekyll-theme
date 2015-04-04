@@ -153,7 +153,7 @@ public interface Predicate<T>
 }
 {% endhighlight %}
 
-Now a full example of how we print cars using no extra classes or interfaces and just lamda expressions would look like this 
+Now a full example of how we print cars using no extra classes or interfaces and just lamda expressions would look like this. Note the signature of the **printBy()** function.
 
 {% highlight java %}
 public class Car {
