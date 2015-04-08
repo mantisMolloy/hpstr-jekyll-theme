@@ -1,21 +1,30 @@
-<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
-	<button class="dl-trigger">Open Menu</button>
-	<ul class="dl-menu">
-		<li><a href="{{ site.url }}/">Blog</a></li>
-		<li>
-			<a href="#">Posts</a>
-			<ul class="dl-submenu">
-				<li><a href="{{ site.url }}/posts/">All Posts</a></li>
-				<li><a href="{{ site.url }}/tags/">All Tags</a></li>
-			</ul>
-		</li>
-		{% for link in site.data.navigation %}
-	    {% if link.url contains 'http' %}
-	        {% assign domain = '' %}
-	        {% else %}
-	        {% assign domain = site.url %}
-	    {% endif %}
-	    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
-	  {% endfor %}
-	</ul><!-- /.dl-menu -->
-</nav><!-- /.dl-menuwrapper -->
+<div id="navbar">
+   	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          
+      	<div class="container">
+            
+          	<div class="navbar-header">
+           		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-1">
+               		<span class="sr-only">Toggle navigation</span>
+               		<span class="icon-bar"></span>
+               		<span class="icon-bar"></span>
+               		<span class="icon-bar"></span>
+           		</button>
+
+           		<a class="navbar-brand" href="{{ site.url }}"><b>blog.tommoll.com</b></a>
+
+           	</div>
+            	<!-- /.Navbar-header-->
+            	
+           	<div class="collapse navbar-collapse" id="collapse-1">
+           		<ul class="nav navbar-nav navbar-right">
+                   	<li><a href="http://www.tommoll.com/about">About</a></li>
+                   	<li><a href="{{ site.url }}/">Blog</a></li>
+                   	<li><a href="http://www.tommoll.com/publications">Publications</a></li>
+           		</ul>
+           	</div>
+       	</div>
+      	<!-- /.container-->
+   	</nav>
+</div>
+<!-- /.navbar-->
