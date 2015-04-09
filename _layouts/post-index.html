@@ -19,8 +19,8 @@
   {% if page.image.credit %}<div class="image-credit">Image source: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
   {% if page.image.feature %}
     <div class="entry-image">
-      <img src="/images/main.jpg" alt="{{ page.title }}">
-      <img src="/images/main_blur.jpg" alt="{{ page.title }}" class="blur">
+      <img src="{{site.url}}/images/main.jpg" alt="{{ page.title }}">
+      <img src="{{site.url}}/images/main_blur.jpg" alt="{{ page.title }}" class="blur">
     </div><!-- /.entry-image -->
   {% endif %}
   <div class="header-title">
