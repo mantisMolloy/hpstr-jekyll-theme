@@ -44,16 +44,11 @@
 
 {% include scripts.html %}   
 <script>
-$(".blur").css("opacity", 0);
-$(window).scroll(function(e) {
+
+setInterval(function(e) {
     oVal = ($(window).scrollTop() / 200);
     $(".blur").css("opacity", oVal);     
-});     
-
-$('body').bind('touchmove', function(e) { 
-    oVal = ($(window).scrollTop() / 200);
-    $(".blur").css("opacity", oVal); 
-});
+}, 200);
 
 </script>  
 
