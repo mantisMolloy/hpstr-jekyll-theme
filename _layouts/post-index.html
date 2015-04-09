@@ -48,7 +48,14 @@ $(".blur").css("opacity", 0);
 $(window).scroll(function(e) {
     oVal = ($(window).scrollTop() / 200);
     $(".blur").css("opacity", oVal);     
-});     </script>  
+});     
+
+$('body').bind('touchmove', function(e) { 
+    oVal = ($(window).scrollTop() / 200);
+    $(".blur").css("opacity", oVal); 
+});
+
+</script>  
 
 </body>
 </html>
