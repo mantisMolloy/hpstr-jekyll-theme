@@ -11,16 +11,18 @@
                		<span class="icon-bar"></span>
            		</button>
 
-           		<a class="navbar-brand" href="{{ site.url }}"><b>blog.tommoll.com</b></a>
+           		<a class="navbar-brand" href="{{ site.url }}"><b><i class="fa fa-home"></i> tommoll.com</b></a>
 
            	</div>
             	<!-- /.Navbar-header-->
             	
            	<div class="collapse navbar-collapse" id="collapse-1">
            		<ul class="nav navbar-nav navbar-right">
-                   	<li><a href="http://www.tommoll.com/about">About</a></li>
-                   	<li class="active"><a href="{{ site.url }}/">Blog</a></li>
+           			<li><a href="http://www.tommoll.com">Home</a>
+                   	<li {% if page.url != '/posts/index.html' %} class="active" {% endif %}><a href="{{ site.url }}/">Blog</a></li>
+                   	<li {% if page.url == '/posts/index.html' %} class="active" {% endif %}><a href="{{ site.url }}/posts">Index</a></li>
                    	<li><a href="http://www.tommoll.com/publications">Publications</a></li>
+                   	<li><a href="http://www.tommoll.com/about">About</a></li>
            		</ul>
            	</div>
        	</div>
