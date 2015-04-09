@@ -12,11 +12,15 @@
 {% include browser-upgrade.html %}
 {% include navigation.html %}
 
+<br>
+<br>
+
 <div class="entry-header">
   {% if page.image.credit %}<div class="image-credit">Image source: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
   {% if page.image.feature %}
     <div class="entry-image">
-      <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}">
+      <img src="/images/main.jpg" alt="{{ page.title }}">
+      <img src="/images/main_blur.jpg" alt="{{ page.title }}" class="blur">
     </div><!-- /.entry-image -->
   {% endif %}
   <div class="header-title">
@@ -38,7 +42,13 @@
   </footer>
 </div><!-- /.footer-wrapper -->
 
-{% include scripts.html %}          
+{% include scripts.html %}   
+<script>
+$(".blur").css("opacity", 0);
+$(window).scroll(function(e) {
+    oVal = ($(window).scrollTop() / 200);
+    $(".blur").css("opacity", oVal);     
+});     </script>  
 
 </body>
 </html>
