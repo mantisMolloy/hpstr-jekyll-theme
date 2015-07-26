@@ -3,18 +3,18 @@ layout: post
 title: "Java 8: Profiling Sequential and Parallel Operations With JMH - A Lesson in JIT Inlining"
 modified:
 categories: blog
-description: Profiling different methods of suming numbers 1 to 100,000,000
+description: Profiling different methods of summing numbers 1 to 100,000,000
 excerpt: JIT inlining and use of parallel() in Java 8 streams
-tags: [Jave 8, JMH, JIT]
+tags: [Java 8, JMH, JIT]
 image:
-  feature: code.jpg
+  feature: code2.jpg
 share: true
 date: 2015-07-25T15:50:33+01:00
 ---
 
-# Profilng Java 8 - When JIT Inlining Goes Wrong
+# Profiling Java 8 - When JIT Inlining Goes Wrong
 
-By profling some simple methods we can get a good insight into how the Java 8 JVM works. Here we will compare and contrast methods that sum numbers using 
+By profiling some simple methods we can get a good insight into how the Java 8 JVM works. Here we will compare and contrast methods that sum numbers using 
 
 1. A thread safe AtomicLong
 2. A custom reduce operation 
@@ -125,7 +125,7 @@ src
 
 I added the above methods to `Bench.java` and set `LIMIT = 1000_000_000L`
 
-I built the project with `mvn clean install` and then used the follwong parameters when runnign the benchmark
+I built the project with `mvn clean install` and then used the following parameters when running the benchmark
 
 {% highlight perl %}
 mantis@mantis: java -jar target/benchmarks.jar testStreams.Bench -i 5 -wi 5 -f 1
@@ -141,7 +141,7 @@ mantis@mantis: java -jar target/benchmarks.jar testStreams.Bench -i 5 -wi 5 -f 1
 |testStreams.Bench.atomicSeq|thrpt|5          |1.801       |
 {: .table}
 
-As multiple threads are trying to access our sum variable we must use an AtomicLong - this prevents multiple threads accessing the variable and results in threads having to wait to access it. We see that using `parallel()` actually results in a worse performance due to the overhead of threads having to wait. This is abad way of summing values using streams.
+As multiple threads are trying to access our sum variable we must use an AtomicLong - this prevents multiple threads accessing the variable and results in threads having to wait to access it. We see that using `parallel()` actually results in a worse performance due to the overhead of threads having to wait. This is a bad way of summing values using streams.
 
 ### Custom Reduce Operation
 
@@ -151,7 +151,7 @@ As multiple threads are trying to access our sum variable we must use an AtomicL
 |testStreams.Bench.reduceSeq|thrpt|5          |5.871       |
 {: .table}
 
-When we break the process of adding the numbers up we see much better results. In sequential mode we see a 5x improvement over using a single varaibale. I have allocated 3 cores to the virtual machine runnign the testbench. When we apply `parallel()` we see ~3x improvement in ops/s.
+When we break the process of adding the numbers up we see much better results. In sequential mode we see a 5x improvement over using a single variable. I have allocated 3 cores to the virtual machine running the testbench. When we apply `parallel()` we see ~3x improvement in ops/s.
 
 ### Java 8 sum()
 
@@ -182,7 +182,7 @@ Iteration   5: 9.332 ops/s
 
 So why the sudden drop in ops/s? Well, the JIT compiler will inline frequently called methods to avoid the overhead of method invocation. However, methods that are too big cannot be inlined without bloating the call sites.
 
-We can see how the JIT compiler compiles our code by using the following JVM flags `-XX:+UnlockDiagnosticVMOptions` `-XX:+PrintCompilation` `-XX:+PrintInlining`. We can see that once the inline limit is reached the JIT does not attempt to inline the pipeline denoted by `callee is to large`. For a full explantion and for  berevities sake see <a href="http://stackoverflow.com/questions/25847397/erratic-performance-of-arrays-stream-map-sum">This Stack Overflow post</a>.
+We can see how the JIT compiler compiles our code by using the following JVM flags `-XX:+UnlockDiagnosticVMOptions` `-XX:+PrintCompilation` `-XX:+PrintInlining`. We can see that once the inline limit is reached the JIT does not attempt to inline the pipeline denoted by `callee is to large`. For a full explanation and for  brevities sake see <a href="http://stackoverflow.com/questions/25847397/erratic-performance-of-arrays-stream-map-sum">This Stack Overflow post</a>.
 
 We can improve performance by adding the `-XX:MaxInlineLevel=12` JVM flag.
 
@@ -215,7 +215,7 @@ Iteration   5: 51.543 ops/s
 
 Not shown here, but we can also improve things by turning off tiered compilation which `-XX:-TieredCompilation`.
 
-### Java 8 sum() With Incresed Inline Level
+### Java 8 sum() With Increased Inline Level
 
 |Benchmark		         |Mode |Iterations |Score(ops/s)|
 |:-----------------------|-----|-----------|------------|
