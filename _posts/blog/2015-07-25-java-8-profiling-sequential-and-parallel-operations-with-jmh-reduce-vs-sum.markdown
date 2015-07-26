@@ -25,7 +25,7 @@ We will then see how using parallel() doesn't always produce better performance 
 ## The Testcases
 
 We will use JMH to profile the JVM. JMH is produced in house at Oracle and is one of the most reliable and accurate profilers. The 6 methods we want to test are
-
+ 
 ### Using an AtomicLong
 
 Sum an AtomicLong.
