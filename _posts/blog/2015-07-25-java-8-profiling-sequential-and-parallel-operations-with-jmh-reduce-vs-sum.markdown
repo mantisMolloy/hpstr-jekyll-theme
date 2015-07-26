@@ -3,7 +3,7 @@ layout: post
 title: "Java 8: Profiling Sequential and Parallel Operations With JMH - A Lesson in JIT Inlining"
 modified:
 categories: blog
-description: Profiling different methods of summing numbers 1 to 100,000,000
+description: JIT inlining and use of parallel() in Java 8 streams
 excerpt: JIT inlining and use of parallel() in Java 8 streams
 tags: [Java 8, JMH, JIT]
 image:
