@@ -223,4 +223,4 @@ Not shown here, but we can also improve things by turning off tiered compilation
 |testStreams.Bench.sumSeq|thrpt|5          |21.052      |
 {: .table}
 
-We see ~3x in performance once the inlining issue has been resolved.
+We see ~3x in performance once the inlining issue has been resolved. Why is the Java 8 `sum()`method more effcient? Well for the custom reduce operation the JVM creates a synthetic method for the lambda code within the same class. The `sum()` operation does not create any additional code; it will pass the MethodHandle directly to the JRE provided LambdaFactory.
